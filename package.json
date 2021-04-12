@@ -12,7 +12,7 @@
   "dependencies": {
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
-    "jdoodlecoderunner": "file:../jdoodleCodeRunner",
+    "jdoodlecoderunner": "^1.0.1",
     "request": "^2.88.2"
   },
   "devDependencies": {},
