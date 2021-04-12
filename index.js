@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var request = require("request");
+const runCode = require("jdoodlecoderunner")
 require("dotenv").config();
 
 const prefix = "coder ";
@@ -64,6 +65,30 @@ client.on("message", async (message) => {
               }
             });
         });
+        break;
+      case "runjdoodle":
+        var input = "";
+        var language, index;
+        if (args[1] == "C" || args[1] == "c") {
+          language = "c";
+          index = "0";
+        } else if (args[1] == "python") {
+          language = "python3";
+          index = "3";
+        }
+        var fileName = message.attachments.array()[0];
+        for (var i = 2; i < args.length; i++) input += args[i] + " ";
+        var output=""
+        output=await runCode.runCode(fileName.url,language,index,input,process.env.CLIENT_ID,process.env.CLIENT_SECRET)
+        if(output)
+        {
+          let outputOfProgram = new Discord.MessageEmbed()
+          .setAuthor(client.user.username)
+          .setDescription("Result!!!")
+          .setColor("33FFB3")
+          .setDescription(output);
+          message.channel.send(outputOfProgram);
+        }
         break;
     }
   } catch (Exception) {
