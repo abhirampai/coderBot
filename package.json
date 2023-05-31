@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.7.1",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.2",
     "jdoodlecoderunner": "^1.0.1",
     "request": "^2.88.2"
   },
